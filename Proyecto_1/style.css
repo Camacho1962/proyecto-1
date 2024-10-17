@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --primary-color: aliceblue;
+    --secondary-color: black;
+    --red-color: rgb(180, 49, 49);
+    --list-color: rgba(138, 48, 48, 0.384);
+    --border: 1px solid rgb(138, 49, 49);
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--secondary-color);
+    background-attachment: fixed; /*fija el fondo*/
+
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;/*convierte las palabras en mayusculas*/
+}
+
+ul {
+    list-style-type: none;
+}
+
+/*header*/
+
+header {
+    border: var(--border);
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: 40px;
+    margin-left: 20px;
+}
+
+header .main_logo {
+    height: 100px;
+    width: auto;
+    border-radius: 100px;
+    margin-left: 10px;
+    padding: 2px;
+}
+
+.main_logo {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+    
+/* Cambia el color al pasar el ratón */
+.main_logo:hover {
+    background-color: var(--red-color);
+    border: var(--border);
+}
+
+header .link_icon {
+    height: 28px;
+    width: auto;
+    border-radius: 20px;
+    /*filter: invert(100%); para invertir el color de los elementos*/
+}
+
+.boton {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+    
+/* Cambia el color al pasar el ratón */
+.boton:hover {
+    color: var(--red-color);
+}
+
+header a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 2px;
+    font-size: 10px;
+}
+
+@media (max-width: 840px) {
+    header span {
+        display: none;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    img:hover {
+        transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+        transition: transform 0.4s ease; /* Para un efecto suave */
+    }
+
+    .link_icon {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    /* Cambia el color al pasar el ratón */
+    .link_icon:hover {
+        border: var(--border);
+    }
+    main h1 {
+        font-size: 250%;
+    }
+    
+    .buscar input {
+        font-size: 50%;
+        max-height: 18px;
+        margin-bottom: 5px;
+    }
+
+}
+
+
+/*hero*/
+
+#hero {
+    padding-top: 100px;
+    aspect-ratio: 7/2;
+    background-image: url(./asset/fondo-concierto.jpg);
+    background-size: cover;
+    border-left: var(--border);
+    border-right: var(--border);
+    border-bottom: var(--border);
+    display: grid;
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    main #hero {
+        aspect-ratio: 4/2;
+    }
+}
+
+@media (max-width: 1200px) {
+    #hero h1 {
+        font-size: 350%;
+    }
+}
+
+@media (min-width: 1300px) {
+    main #hero {
+        aspect-ratio: 5/1;
+    }
+
+    
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 500%;
+}
+
+label {
+    color: var(--primary-color);
+}
+
+.buscar input {
+    border-radius: 5px;
+    height: 30px;
+    width: auto;
+}
+
+.lo_mas h2 {
+    color: var(--primary-color);
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+    font-size:medium;
+    color: var(--primary-color);
+    background-color: var(--list-color);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/*top reproducciones*/
+
+#repro {
+    height: 300px;
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    max-width: 800px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(3, 150px);
+    gap: 15px;
+}
+
+#repro > div > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Para un efecto suave */
+}
+
+img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+}
+
+@media (max-width: 700px) {
+    #repro {
+		grid-template-areas: 
+        "extremo sa rage"
+		"ac biki pleton"
+		"bob mari paul"
+		"eric era ibiza";
+		grid-template-columns: 140px 140px 140px;
+		grid-template-rows: 
+		140px
+        140px
+        140px
+        140px;
+        gap: 10px;
+	}
+
+    
+}
+
+@media (min-width: 1200px) {
+    #repro {
+		grid-template-areas: 
+        "extremo sa rage ac biki pleton" 
+	    "bob mari paul eric era ibiza";
+		grid-template-columns: 150px 150px 150px 150px 150px 150px;
+		grid-template-rows: 
+		150px
+        150px;
+	}
+}
+
+/*Tus listas*/
+
+.mi-lista h2 {
+    color: var(--primary-color);
+    display: flex;
+    margin-top: 250px;
+    margin-bottom: 40px;
+    justify-content: center;
+    font-size:medium;
+    color: var(--primary-color);
+    background-color: var(--list-color);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+@media (max-width: 700px) {
+    .mi-lista {
+        margin-top: 360px;
+        /*height: 300px;*/
+    }
+}
+
+@media (min-width: 1200px) {
+    .mi-lista h2 {
+        margin-top: 100px;
+    }
+}
+
+.listas {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: list;
+    background-image: url(./asset/listas.jpg);
+}
+
+.rock {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: hard;
+    background-image: url(./asset/rock.avif);
+}
+
+.fusion {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: mezcla;
+    background-image: url(./asset/fusion.jpeg);
+}
+
+.pop {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: popero;
+    background-image: url(./asset/pop.jpg);
+}
+
+.reggae {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: rasta;
+    background-image: url(./asset/reggae.avif);
+}
+
+.indie {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: indio;
+    background-image: url(./asset/indie.jpg);
+}
+
+.underground {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: street;
+    background-image: url(./asset/underground.avif);
+}
+
+.flamenco {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: hondo;
+    background-image: url(./asset/flamenco.jpg);
+}
+
+.otros {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: others;
+    background-image: url(./asset/otros.jpg);
+}
+
+.radio {
+    height: 100%; /* Cambiado para asegurarse de que ocupa todo el contenedor */
+    background-size: cover; /* Mantener para que la imagen de fondo cubra toda el área */
+    background-position: center; /* Asegura que la imagen esté centrada */
+    border-radius: 10px;
+    grid-area: onda;
+    background-image: url(./asset/radio.jfif);
+}
+
+#music {
+    height: 300px;
+    width: 90%;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 150px 150px 150px 150px 150px;
+    grid-template-rows:
+    150px
+    150px;
+    grid-template-areas:
+    "list hard mezcla popero rasta"
+    "indio street hondo others onda";
+    gap: 15px;
+    cursor: pointer;
+}
+
+#music > div:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+    transition: transform 0.4s ease; /* Para un efecto suave */
+}
+
+#music p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    font-size: large;
+    font-weight: 800;
+    padding: 5px;
+    font-style:inherit;
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+#music .indie > p {
+    color: var(--secondary-color);
+}
+#music > .listas > p {
+    color: var(--secondary-color);
+}
+
+#music .fusion > p {
+    color: var(--secondary-color);
+}
+
+#music > .radio > p {
+    color: var(--secondary-color);
+}
+
+#music > .underground > p {
+    font-size: larger;
+}
+
+@media (max-width: 840px) {
+    #music {
+        height: 300px;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 230px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 140px 140px 140px 140px;
+        grid-template-rows:
+        140px
+        140px
+        140px;
+        grid-template-areas:
+        "list hard mezcla popero"
+        "rasta indio street hondo"
+        "others others onda onda";
+        gap: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    #music {
+        height: 300px;
+        width: 90%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 140px 140px 140px;
+        grid-template-rows:
+        140px
+        140px
+        140px
+        120px;
+        grid-template-areas:
+        "list hard mezcla"
+        "popero rasta indio"
+        "street hondo others"
+        "onda onda others";
+        gap: 10px;
+    }
+}
+
+/*footer*/
+
+footer {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 130px;
+    margin-top: 100px;
+    margin-bottom: 3px;
+    padding: 20px;
+    color: aliceblue;
+    border: var(--border);
+}
+
+
+
+#redes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#redes > img {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    #contacto > h2 {
+        font-size: medium;
+    }
+    #contacto > p {
+        font-size: small;
+    }
+    #contacto > ul > li {
+        font-size: small;
+    }
+}
+
+@media (max-width: 860px) {
+    #contacto > h2 {
+        font-size: medium;
+    }
+    #contacto > p {
+        font-size: small;
+    }
+    #contacto > ul > li {
+        font-size: small;
+    }
+}
+
+@media(max-width: 700px) {
+    footer {
+        margin-top: 350px;
+    }
+
+    #contacto > h2 {
+        font-size: medium;
+    }
+    #contacto > p {
+        font-size: small;
+    }
+    #contacto > ul > li {
+        font-size: small;
+    }
+}
+
+@media (max-width: 640px) {
+    footer {
+        height: 160px;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 50px;
+        gap: 40px;
+        margin-bottom: 3px;
+    }
+
+    #contacto {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    #redes > img {
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
